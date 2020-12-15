@@ -1,6 +1,3 @@
-var pg = require('pg');
-pg.defaults.ssl = true;
-
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
@@ -11,7 +8,13 @@ const sequelize = new Sequelize(
       host: process.env.DATABASE_HOST || 'localhost',
       dialect: 'postgres',
       quoteIdentifiers: false,
-      operatorsAliases: false
+      operatorsAliases: false,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
   }
 );
 
