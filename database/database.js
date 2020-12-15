@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-  'vmussak', // database
-  'rails',   // user
-  'rails',   // pass
+  process.env.DATABASE_NAME || 'vmussak', // database
+  process.env.DATABASE_USER || 'rails',   // user
+  process.env.DATABASE_PASS || 'rails',   // pass
   {
-      host: 'localhost',
+      host: process.env.DATABASE_HOST || 'localhost',
       dialect: 'postgres',
       quoteIdentifiers: false,
       operatorsAliases: false
