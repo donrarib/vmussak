@@ -37,7 +37,7 @@ app.use(cors);
 
 // routes registradas
 authRoute(app);
-app.use(auth);
+// app.use(auth);
 typeCustomerRoute(app);
 
 
